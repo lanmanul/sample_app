@@ -10,6 +10,7 @@ gem 'webpacker', '~> 5.4.0'
 gem 'turbolinks', '5.2.1'
 gem 'jbuilder',   '2.10.0'
 gem 'bootsnap',   '1.7.2', require: false
+gem 'wdm', '>= 0.1.0', require: false if Gem.win_platform?
 
 group :development, :test do
   gem 'sqlite3', '~> 1.7.3'
@@ -27,6 +28,11 @@ group :test do
   gem 'capybara',           '3.35.3'
   gem 'selenium-webdriver', '~> 4.9.0'
   gem 'webdrivers',         '5.3.1'
+  gem 'rails-controller-testing', '1.0.5'
+  gem 'minitest',                 '5.11.3'
+  gem 'minitest-reporters',       '1.3.8'
+  gem 'guard',                    '2.16.2'
+  gem 'guard-minitest',           '2.4.6'
 end
 
 group :production do
