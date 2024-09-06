@@ -2,3 +2,8 @@ michael:
   name: Michael Hartl
   email: michael@example.com
   password_digest: <%= BCrypt::Password.create('password') %>
+
+#    example@railstutorial.org, Password: 'password'
+#    gatecrash3r@gmail.com, Password: 'qwerty'
+#    testtester@gmail.com, Password: 'qwerty'
+#    michael@example.com, Password: 'password'
