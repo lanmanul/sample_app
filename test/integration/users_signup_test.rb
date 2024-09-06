@@ -15,6 +15,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_select 'div.field_with_errors'
     assert_select 'div.alert'
     assert flash.empty?
-    #assert is_logged_in?
+    assert_not is_logged_in?
   end
 end
