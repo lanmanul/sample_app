@@ -9,10 +9,12 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password: "foo",
                                          password_confirmation: "bar" } }
     end
-
+    #follow_redirect!
     assert_template 'users/new'
     assert_select 'div#error_explanation'
     assert_select 'div.field_with_errors'
+    assert_select 'div.alert'
     assert flash.empty?
+    #assert is_logged_in?
   end
 end
