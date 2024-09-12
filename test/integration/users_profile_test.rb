@@ -19,4 +19,22 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
       assert_match micropost.content, response.body
     end
   end
+
+  # gpt написал с регуляркой (кажется ерундой)
+  test "stats on home page" do
+    log_in_as(@user)
+    get root_path
+    assert_template 'static_pages/home'
+
+    # Проверка, что текст включает правильное количество following
+    assert_select "a[href=?]", following_user_path(@user) do |element|
+      assert_match /\A\s*#{@user.following.count}\s*\n*\s*following\s*\Z/i, element.text
+    end
+
+    # Проверка, что текст включает правильное количество followers
+    assert_select "a[href=?]", followers_user_path(@user) do |element|
+      assert_match /\A\s*#{@user.followers.count}\s*\n*\s*followers\s*\Z/i, element.text
+    end
+  end
+
 end
