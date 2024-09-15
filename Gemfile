@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.5'
 
 gem 'rails', '~> 6.1.7'
+gem 'devise'
+gem 'simple_form'
 gem 'slim-rails'
 gem 'image_processing', '1.9.3'
 gem 'mini_magick', '4.9.5'

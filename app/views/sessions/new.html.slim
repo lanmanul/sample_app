@@ -9,15 +9,18 @@ h1 Log in
       = f.email_field :email, class: 'form-control'
 
       = f.label :password
-      = link_to "(forgot password)", new_password_reset_path
       = f.password_field :password, class: 'form-control'
 
-      = f.label :remember_me, class: "checkbox inline" do
-        = f.check_box :remember_me
-        span Remember me on this computer
+      .form-check
+        = f.check_box :remember_me, class: 'form-check-input'
+        = f.label :remember_me, class: 'form-check-label' do
+          | Remember me on this computer
 
       = f.submit "Log in", class: "btn btn-primary"
 
     p
       | New user?
-      = link_to  "Sign up now!", signup_path
+      = link_to "Sign up now!", signup_path
+
+    p
+      = link_to "(forgot password)", new_password_reset_path
