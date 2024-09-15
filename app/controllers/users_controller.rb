@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-<<<<<<< HEAD
   before_action :authenticate_user!
 
   # before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
@@ -9,12 +8,7 @@ class UsersController < ApplicationController
   # before_action :admin_user, only: :destroy
   def new
   end
-=======
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
-                                        :following, :followers]
-  before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
->>>>>>> 47ba9ba7fb97546e89ab780903d4077b78c47a2e
+
 
   def index
     @users = User.where(activated: true).paginate(page: params[:page])
