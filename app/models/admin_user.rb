@@ -1,11 +1,20 @@
 class AdminUser < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, 
+  devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
-end
 
-def self.ransackable_attributes(auth_object = nil)
-  # Укажите атрибуты, которые вы хотите, чтобы были доступны для поиска
-  ["created_at", "email", "id", "remember_created_at", "reset_password_sent_at", "reset_password_token", "updated_at"]
+  # Валидаторы
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true
+
+  # Поиск
+  def self.search(query)
+    where("name LIKE ?", "%#{query}%")
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    # Укажите атрибуты, которые вы хотите, чтобы были доступны для поиска
+    ["created_at", "email", "id", "remember_created_at", "reset_password_sent_at", "reset_password_token", "updated_at"]
+  end
 end
