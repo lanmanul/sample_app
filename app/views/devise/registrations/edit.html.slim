@@ -12,13 +12,13 @@ h1 Update your profile
       = f.email_field :email, class: 'form-control'
 
       = f.label :password
-      = f.password_field :password, class: 'form-control',hint: "leave it blank if you don't want to change it",
-              required: false,
-              input_html: { autocomplete: "new-password" }
+      = f.password_field :password, class: 'form-control', hint: "leave it blank if you don't want to change it", required: false
 
       = f.label :password_confirmation, "Confirmation"
-      = f.password_field :password_confirmation, class: 'form-control',required: false,
-              input_html: { autocomplete: "new-password" }
+      = f.password_field :password_confirmation, class: 'form-control', required: false
+
+      = f.label :current_password, "Current password (required)"
+      = f.password_field :current_password, class: 'form-control', required: true
 
       = f.submit "Save changes", class: "btn btn-primary"
 
@@ -26,5 +26,4 @@ h1 Update your profile
       = gravatar_for @user
       a href="http://gravatar.com/emails" target="_blank" change
 
-
-    = link_to "Back", :back
+    = link_to "Back", request.referrer || root_path

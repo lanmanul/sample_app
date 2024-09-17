@@ -9,17 +9,15 @@ h1 Log in
       = f.email_field :email, class: 'form-control'
 
       = f.label :password
+      = f.password_field :password, class: 'form-control'
       /= link_to "(forgot password)", new_user_password_path
 
-      = f.password_field :password, class: 'form-control'
-
-      = f.label :remember_me, class: "checkbox inline" do
-        = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-
-
+      - if devise_mapping.rememberable?
+        = f.input :remember_me, as: :boolean, inline_label: "Remember me"
 
       = f.submit "Log in", class: "btn btn-primary"
 
     p
       | New user?
       = render "devise/shared/links"
+nks"

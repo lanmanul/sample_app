@@ -25,7 +25,7 @@ gem 'bootsnap',   '1.7.2', require: false
 gem 'wdm', '>= 0.1.0', require: false if Gem.win_platform?
 
 group :development, :test do
-  gem 'sqlite3', '~> 1.7.3'
+  gem 'sqlite3', '~> 1.4'
   gem 'byebug',  '11.1.3', platforms: [:mri, :mingw, :x64_mingw]
 end
 

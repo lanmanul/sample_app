@@ -374,7 +374,7 @@ DEPENDENCIES
   simple_form
   slim-rails
   spring (= 2.1.1)
-  sqlite3 (~> 1.7.3)
+  sqlite3 (~> 1.4)
   turbolinks (= 5.2.1)
   tzinfo-data
   wdm (>= 0.1.0)
