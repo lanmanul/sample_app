@@ -91,7 +91,7 @@ class User < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     ["activated", "activated_at", "activation_digest", "admin", "confirmation_sent_at", "confirmation_token", "confirmed_at", "created_at", "email", "id", "name", "remember_created_at", "remember_digest", "reset_digest", "reset_password_sent_at", "reset_password_token", "reset_sent_at", "unconfirmed_email", "updated_at"]
   end
-  
+
   def feed
     following_ids = "SELECT followed_id FROM relationships
 WHERE follower_id = :user_id"
